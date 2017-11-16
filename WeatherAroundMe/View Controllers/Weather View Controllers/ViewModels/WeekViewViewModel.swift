@@ -19,4 +19,21 @@ struct WeekViewViewModel {
     var numberOfDays: Int {
         return weatherData.count
     }
+    
+    func day(for index: Int) -> String {
+        
+        let weatherDayData = weatherData[index]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        
+        return dateFormatter.string(from: weatherDayData.time)
+    }
+    
+    func date(for index: Int) -> String {
+        let weatherDayData = weatherData[index]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM d"
+        
+        return dateFormatter.string(from: weatherDayData.time)
+    }
 }
